@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/styles.css">
-    <title>Product App</title>
+    <title>Order Some Socks</title>
 </head>
 
 <body>
@@ -28,13 +28,14 @@
                 <ul>
                     <li v-for="detail in details">{{ detail }}</li>
                 </ul>
-                <div v-for="variant in variants" :key="variant.variantId">
-                    <p @mouseover="updateProduct(variant.variantImage)">{{ variant.variantColor }}</p>
+                <div v-for="variant in variants" :key="variant.variantId" class="color-box"
+                    :style="{ backgroundColor:variant.variantColor }" @mouseover="updateProduct(variant.variantImage)">
                 </div>
                 <ul>
                     <li v-for="size in sizes">{{ size }}</li>
                 </ul>
                 <button v-on:click="addToCart">Add to Cart</button>
+                <button @click="removeFromCart">Remove</button>
                 <div class="cart">
                     <p>{{ cart }}</p>
                 </div>
